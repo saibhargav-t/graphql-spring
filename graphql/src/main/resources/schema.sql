@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL DEFAULT 'sri rama',
+    email VARCHAR(50) NOT NULL DEFAULT 'srirama@gmail.com',
+    age INT NOT NULL DEFAULT 18,
+    gender CHAR(1) NOT NULL DEFAULT 'M'
+);

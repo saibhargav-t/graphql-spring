@@ -1,0 +1,11 @@
+type Query{
+  getUser(id:Int):Users
+  getAll:[Users]
+}
+type Users{
+  id:Int
+  name:String
+  email:String
+  age:Int
+  gender:String
+}
