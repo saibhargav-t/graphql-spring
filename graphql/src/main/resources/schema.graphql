@@ -1,11 +1,37 @@
-type Query{
-  getUser(id:Int):Users
-  getAll:[Users]
+type Query {
+  getUser(id: String): Users
+  getAll: [Users]
 }
-type Users{
-  id:Int
-  name:String
-  email:String
-  age:Int
-  gender:String
+type Mutation {
+  createUser(
+    name: String
+    email: String
+    age: Int
+    gender: String
+    employment: Employment
+    street: String
+    city: String
+    state: String
+    country: String
+  ): String
+}
+type Users {
+  id: String
+  name: String
+  email: String
+  age: Int
+  gender: String
+  address: Address
+  employment: Employment
+}
+type Address {
+  street: String
+  city: String
+  state: String
+  country: String
+}
+enum Employment {
+  SALARIED
+  SELF_EMPLOYED
+  GOVERNMENT_OFFICIAL
 }

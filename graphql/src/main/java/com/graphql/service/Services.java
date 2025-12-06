@@ -11,4 +11,5 @@ public interface Services {
 	
 	public DataFetcher<CompletableFuture<Users>> getUser();
 	public DataFetcher<CompletableFuture<List<Users>>> getAll();
+	public DataFetcher<CompletableFuture<String>> saveUser();
 }

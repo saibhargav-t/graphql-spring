@@ -8,6 +8,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.r2dbc.connection.init.ConnectionFactoryInitializer;
 import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator;
 
+import com.graphql.service.AddressService;
 import com.graphql.service.Services;
 
 import graphql.GraphQL;
@@ -25,12 +26,14 @@ import lombok.RequiredArgsConstructor;
 public class Configurations {
 
 	private final Services services;
+	private final AddressService addressService;
 
 	@Bean
 	ConnectionFactoryInitializer connectionFactoryInitializer(ConnectionFactory connectionFactory) {
 		ConnectionFactoryInitializer initializer = new ConnectionFactoryInitializer();
 		initializer.setConnectionFactory(connectionFactory);
-		ResourceDatabasePopulator populator = new ResourceDatabasePopulator(new ClassPathResource("schema.sql"),new ClassPathResource("data.sql"));
+		ResourceDatabasePopulator populator = new ResourceDatabasePopulator(new ClassPathResource("schema.sql"),
+				new ClassPathResource("data.sql"));
 		initializer.setDatabasePopulator(populator);
 		return initializer;
 	}
@@ -42,7 +45,10 @@ public class Configurations {
 		TypeDefinitionRegistry typeDefinitionRegistry = schemaParser.parse(resource.getInputStream());
 		RuntimeWiring runtimeWiring = RuntimeWiring.newRuntimeWiring()
 				.type(TypeRuntimeWiring.newTypeWiring("Query").dataFetcher("getUser", services.getUser()))
-				.type(TypeRuntimeWiring.newTypeWiring("Query").dataFetcher("getAll", services.getAll())).build();
+				.type(TypeRuntimeWiring.newTypeWiring("Query").dataFetcher("getAll", services.getAll()))
+				.type(TypeRuntimeWiring.newTypeWiring("Mutation").dataFetcher("createUser", services.saveUser()))
+				.type(TypeRuntimeWiring.newTypeWiring("Users").dataFetcher("address", addressService.getAddress()))
+				.build();
 		SchemaGenerator generator = new SchemaGenerator();
 		GraphQLSchema executableSchema = generator.makeExecutableSchema(typeDefinitionRegistry, runtimeWiring);
 		return GraphQL.newGraphQL(executableSchema).build();

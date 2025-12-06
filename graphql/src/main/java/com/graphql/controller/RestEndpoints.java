@@ -1,7 +1,5 @@
 package com.graphql.controller;
 
-import java.util.concurrent.CompletableFuture;
-
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

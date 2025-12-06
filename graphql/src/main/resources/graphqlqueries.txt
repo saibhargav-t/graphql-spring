@@ -1,0 +1,25 @@
+To Perform Query that take argument
+
+{
+  getUser(id:"dbdf6e1e-8933-462d-a617-edd4dda69b97"){
+    name
+    email
+    age
+    gender
+  }
+}
+
+To Perform query that dont take any argument
+
+{
+  getAll{
+    id
+    name
+  }
+}
+
+To create a mutation
+
+mutation{
+  createUser(name:"bhargav",email:"bhargav@gamil.com",age:20,gender:"M")
+}
