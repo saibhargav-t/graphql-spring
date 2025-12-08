@@ -34,6 +34,7 @@ A comprehensive tutorial project demonstrating how to build a GraphQL API using 
   - [Learning Path](#learning-path)
   - [What You'll Learn](#what-youll-learn)
   - [Testing the API](#testing-the-api)
+    - [Using Altair GraphQL Client (Recommended)](#using-altair-graphql-client-recommended)
     - [Using Postman](#using-postman)
     - [Using cURL](#using-curl)
     - [Using GraphQL Playground](#using-graphql-playground)
@@ -76,7 +77,7 @@ Before you begin, ensure you have the following installed:
 - **Maven 3.6+** for building the project
 - **IDE** (recommended: IntelliJ IDEA, Eclipse, or VS Code with Java extensions)
 - **Git** for cloning the repository
-- **Postman** or **GraphQL Playground** (optional, for testing)
+- **Altair GraphQL Client** (recommended for testing) or **Postman**/**GraphQL Playground**
 
 ## Getting Started
 
@@ -372,6 +373,31 @@ By working through this project, you'll gain hands-on experience with:
 
 ## Testing the API
 
+### Using Altair GraphQL Client (Recommended)
+
+[Altair GraphQL Client](https://altairgraphql.dev/) is a beautiful, feature-rich GraphQL client that was used to test this project.
+
+**Installation:**
+
+- Download from [altairgraphql.dev](https://altairgraphql.dev/)
+- Available as desktop app (Windows, Mac, Linux) or browser extension
+
+**Setup:**
+
+1. Open Altair GraphQL Client
+2. Set the GraphQL endpoint to `http://localhost:2619/graphql`
+3. Start writing queries with auto-completion and schema documentation
+4. Use the built-in query history and variable editor
+
+**Why Altair?**
+
+- ✨ Beautiful, intuitive interface
+- 📝 Auto-completion based on your schema
+- 📚 Built-in documentation explorer
+- 🔍 Query history and collections
+- 🎨 Syntax highlighting and formatting
+
+
 ### Using Postman
 
 1. Create a new POST request to `http://localhost:2619/graphql`
@@ -395,6 +421,8 @@ curl -X POST http://localhost:2619/graphql \
 ### Using GraphQL Playground
 
 If you have GraphQL Playground installed, simply point it to `http://localhost:2619/graphql` and start exploring with auto-completion and documentation.
+
+**Note:** While any GraphQL client works, Altair GraphQL Client is recommended for the best developer experience with this project.
 
 ## Contributing
 
