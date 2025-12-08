@@ -17,7 +17,7 @@ VALUES (
         'rama@ayodhya.gov',
         32,
         'M',
-        'government_official'
+        'GOVERNMENT_OFFICIAL'
     ),
     (
         'b74c2e11-b55c-4fd2-b39c-126765c670c2',
@@ -25,7 +25,7 @@ VALUES (
         'sita@mithila.in',
         28,
         'F',
-        'self_employed'
+        'SELF_EMPLOYED'
     ),
     (
         'c91e75e6-ddc7-4cd6-b0c7-b5e9a0bdba01',
@@ -33,7 +33,7 @@ VALUES (
         'lakshmana@ayodhya.gov',
         30,
         'M',
-        'government_official'
+        'GOVERNMENT_OFFICIAL'
     ),
     (
         'd1200c41-9ea3-4f4b-9b93-784b4ea77162',
@@ -41,7 +41,7 @@ VALUES (
         'bharata@ayodhya.gov',
         29,
         'M',
-        'government_official'
+        'GOVERNMENT_OFFICIAL'
     ),
     (
         'e4416d87-4933-4acf-a2b7-9fd721fdf134',
@@ -49,7 +49,7 @@ VALUES (
         'shatrughna@ayodhya.gov',
         27,
         'M',
-        'government_official'
+        'GOVERNMENT_OFFICIAL'
     ),
     (
         'f7a9f430-8a57-4ce6-a7f1-9d7aa0549af2',
@@ -57,7 +57,7 @@ VALUES (
         'hanuman@kishkindha.in',
         35,
         'M',
-        'salaried'
+        'SALARIED'
     ),
     (
         '0a4fa478-9cd7-4a8d-a1c4-1b12e33b9c91',
@@ -65,7 +65,7 @@ VALUES (
         'sugriva@kishkindha.in',
         40,
         'M',
-        'self_employed'
+        'SELF_EMPLOYED'
     ),
     (
         '1bfc1131-dca0-49f1-acf9-e4ffd39a2ef2',
@@ -73,7 +73,7 @@ VALUES (
         'vibhishana@lanka.gov',
         38,
         'M',
-        'government_official'
+        'GOVERNMENT_OFFICIAL'
     ),
     (
         '264cae0e-2f83-4f84-8223-f7bb0ddc65fe',
@@ -81,7 +81,7 @@ VALUES (
         'jambavantha@vanara.in',
         70,
         'M',
-        'self_employed'
+        'SELF_EMPLOYED'
     ),
     (
         '3c7f936a-a3ff-49ee-ae0c-65b78bf3389e',
@@ -89,7 +89,7 @@ VALUES (
         'indrajit@lanka.gov',
         25,
         'M',
-        'government_official'
+        'GOVERNMENT_OFFICIAL'
     );
 
 INSERT INTO

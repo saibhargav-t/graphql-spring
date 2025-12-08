@@ -22,6 +22,16 @@
   - [GraphQL Request Flow in Spring Boot](#graphql-request-flow-in-spring-boot)
     - [Request Flow Explanation](#request-flow-explanation)
     - [Key Points](#key-points)
+  - [Glossary](#glossary)
+    - [1. Schema](#1-schema)
+    - [2. Type](#2-type)
+    - [3. Query](#3-query)
+    - [4. Mutation](#4-mutation)
+    - [5. Variables](#5-variables)
+    - [6. Non-Null (! )](#6-non-null--)
+    - [7. Fragments](#7-fragments)
+    - [8. Aliases](#8-aliases)
+    - [9. Enum](#9-enum)
 
 ## Introduction
 
@@ -298,3 +308,112 @@ When a client interacts with a GraphQL API in a Spring Boot application, the fol
 - **Data Fetchers** encapsulate the business logic and data access layer, keeping concerns separated.
 - The bidirectional arrows in the diagram represent the request-response cycle at each layer.
 - Unlike REST APIs with multiple endpoints, GraphQL uses a single endpoint with the query structure determining what data is returned.
+
+## Glossary
+
+The following terms are fundamental to understanding and working with GraphQL.
+
+### 1. Schema
+
+The **Schema** is the core of any GraphQL server implementation. It describes the functionality available to the client applications that connect to it. It acts as a contract between the client and the server, structured as a collection of types and fields.
+
+### 2. Type
+
+**Types** are the building blocks of a GraphQL schema. They represent the kinds of objects found in your application (e.g., `User`, `Book`).
+
+- **Scalar Types**: Basic data types like `String`, `Int`, `Boolean`, `ID`, `Float`.
+- **Object Types**: Custom objects defined in the schema with fields.
+
+### 3. Query
+
+A **Query** is a read-only operation used to request data from the GraphQL server. It is equivalent to a `GET` request in REST.
+
+**Example:**
+
+```graphql
+query {
+  getUser(id: "123") {
+    name
+  }
+}
+```
+
+### 4. Mutation
+
+A **Mutation** is an operation used to write or modify data on the server (create, update, delete). It is equivalent to `POST`, `PUT`, `DELETE` in REST.
+
+**Example:**
+
+```graphql
+mutation {
+  createUser(name: "John") {
+    id
+  }
+}
+```
+
+### 5. Variables
+
+**Variables** allow you to pass dynamic arguments to your queries and mutations separately from the query string. This prevents string concatenation and enables reuse.
+
+**Example:**
+
+```graphql
+query GetUser($userId: ID!) {
+  getUser(id: $userId) {
+    name
+  }
+}
+```
+
+### 6. Non-Null (! )
+
+The exclamation mark `!` after a type indicates that the field is **Non-Null**. The server promises to always return a value for this field, and if it ends up being null, it will trigger a GraphQL execution error.
+
+**Example:** `id: String!` means `id` cannot be null.
+
+### 7. Fragments
+
+**Fragments** are reusable units of logic (sets of fields) that can be shared between multiple queries. They help avoid code duplication.
+
+**Example:**
+
+```graphql
+fragment NameParts on User {
+  firstName
+  lastName
+}
+
+query {
+  user {
+    ...NameParts
+  }
+}
+```
+
+### 8. Aliases
+
+**Aliases** allow you to rename the result of a field to avoid conflicts (e.g., when fetching the same field with different arguments) or to map it to a specific client-side name.
+
+**Example:**
+
+```graphql
+query {
+  firstUser: getUser(id: "1") { name }
+  secondUser: getUser(id: "2") { name }
+}
+```
+
+### 9. Enum
+
+An **Enum** (Enumeration) is a special scalar type that restricts a field to a particular set of allowed values.
+
+**Example:**
+
+```graphql
+enum Role {
+  ADMIN
+  USER
+  GUEST
+}
+```
